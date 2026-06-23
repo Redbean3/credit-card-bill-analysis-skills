@@ -4,7 +4,7 @@
 
 面向 Coding Agent 的信用卡账单分析 skill，帮助 Codex 或 Claude Code 将中文信用卡 PDF 账单转换为 Markdown，解析交易明细，剔除已退款对应账目，并生成消费分类、每日消费趋势、交互式 HTML 报告和 CSV 明细。
 
-每个安装入口都支持本仓库的同一份 skill；你可以只安装到一个 agent，也可以同时安装到 Codex 和 Claude Code。
+本仓库同时包含 `inskills` 安装器和账单分析 skill。`inskills` 可以从 GitHub 仓库安装 `skills/**/SKILL.md` 格式的 skills；你可以只安装到一个 agent，也可以同时安装到 Codex 和 Claude Code。
 
 ## 功能
 
@@ -16,10 +16,10 @@
 
 ## Quickstart（30 秒安装）
 
-1. 运行本仓库的 npx 安装器：
+1. 使用 `inskills` 从 GitHub 安装本仓库的 skill：
 
 ```bash
-npx github:Redbean3/credit-card-bill-analysis-skills
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills
 ```
 
 2. 选择要安装到的 coding agent：Codex、Claude Code，或两者都选。
@@ -33,9 +33,17 @@ Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
 也可以非交互安装：
 
 ```bash
-npx github:Redbean3/credit-card-bill-analysis-skills -- --codex
-npx github:Redbean3/credit-card-bill-analysis-skills -- --claude-code
-npx github:Redbean3/credit-card-bill-analysis-skills -- --all
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --codex
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --claude-code
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --all
+```
+
+`inskills` 也可以安装其他公开 GitHub skill 仓库：
+
+```bash
+npx inskills@latest add owner/repo
+npx inskills@latest add owner/repo#v1.0.0 --all
+npx inskills@latest add owner/repo --skill skill-name --codex
 ```
 
 ## 手动安装
@@ -143,6 +151,9 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 ```text
 .
+├── bin/
+│   └── install.mjs
+├── package.json
 ├── setup
 └── skills/
     └── credit-card-bill-analysis/

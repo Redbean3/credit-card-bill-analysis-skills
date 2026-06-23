@@ -1,17 +1,19 @@
 {
-  "name": "credit-card-bill-analysis-skills",
+  "name": "inskills",
   "version": "0.1.0",
-  "private": true,
-  "description": "Install the credit-card-bill-analysis skill for Codex and Claude Code.",
+  "description": "Install agent skills from GitHub repositories into Codex or Claude Code.",
   "bin": {
-    "credit-card-bill-analysis-skills": "./bin/install.mjs"
+    "inskills": "bin/install.mjs"
   },
   "files": [
     "bin",
-    "skills",
     "README.md",
     "README.en.md",
     "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redbean3/credit-card-bill-analysis-skills.git"
+  },
   "license": "MIT"
 }

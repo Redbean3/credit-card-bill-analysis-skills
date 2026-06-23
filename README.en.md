@@ -4,7 +4,7 @@ English | [简体中文](README.md)
 
 A credit-card statement analysis skill for coding agents. It helps Codex or Claude Code convert Chinese credit-card statement PDFs to Markdown, parse transaction details, exclude refunded purchases, and generate spending categories, daily spending trends, an interactive HTML report, and CSV exports.
 
-The same skill can be installed for either agent, or for both Codex and Claude Code.
+This repository contains both the `inskills` installer and the credit-card statement analysis skill. `inskills` installs `skills/**/SKILL.md` style skills from GitHub repositories into Codex, Claude Code, or both.
 
 ## Features
 
@@ -16,10 +16,10 @@ The same skill can be installed for either agent, or for both Codex and Claude C
 
 ## Quickstart (30-second setup)
 
-1. Run this repository's npx installer:
+1. Use `inskills` to install this repository's skill from GitHub:
 
 ```bash
-npx github:Redbean3/credit-card-bill-analysis-skills
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills
 ```
 
 2. Pick the coding agents you want to install it on: Codex, Claude Code, or both.
@@ -33,9 +33,17 @@ Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
 Non-interactive installs:
 
 ```bash
-npx github:Redbean3/credit-card-bill-analysis-skills -- --codex
-npx github:Redbean3/credit-card-bill-analysis-skills -- --claude-code
-npx github:Redbean3/credit-card-bill-analysis-skills -- --all
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --codex
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --claude-code
+npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --all
+```
+
+`inskills` can also install other public GitHub skill repositories:
+
+```bash
+npx inskills@latest add owner/repo
+npx inskills@latest add owner/repo#v1.0.0 --all
+npx inskills@latest add owner/repo --skill skill-name --codex
 ```
 
 ## Manual Install
@@ -143,6 +151,9 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 ```text
 .
+├── bin/
+│   └── install.mjs
+├── package.json
 ├── setup
 └── skills/
     └── credit-card-bill-analysis/
