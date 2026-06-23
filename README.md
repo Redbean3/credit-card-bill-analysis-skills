@@ -10,9 +10,27 @@
 
 | 工具 | 简介 | 安装方式 |
 | --- | --- | --- |
-| Codex | OpenAI 的编程 agent，使用 `${CODEX_HOME:-~/.codex}/skills` 作为默认 skill 目录。 | [`./setup --codex`](#codex) |
-| Claude Code | 运行在终端内的 AI 编程助手，使用 `${CLAUDE_HOME:-~/.claude}/skills` 作为默认 skill 目录。 | [`./setup --claude-code`](#claude-code) |
-| Both | 同时安装到 Codex 和 Claude Code。 | [`./setup --all`](#同时安装) |
+| Codex | OpenAI 的编程 agent，使用 `${CODEX_HOME:-~/.codex}/skills` 作为默认 skill 目录。 | [`npx skills@latest add ...`](#quickstart30-秒安装) |
+| Claude Code | 运行在终端内的 AI 编程助手，使用 `${CLAUDE_HOME:-~/.claude}/skills` 作为默认 skill 目录。 | [`npx skills@latest add ...`](#quickstart30-秒安装) |
+| Both | 同时安装到 Codex 和 Claude Code。 | [`npx skills@latest add ...`](#quickstart30-秒安装) |
+
+## Quickstart（30 秒安装）
+
+1. 运行 skills.sh installer：
+
+```bash
+npx skills@latest add Redbean3/credit-card-bill-analysis-skills
+```
+
+2. 选择 `credit-card-bill-analysis`。
+
+3. 选择要安装到的 coding agent：Codex、Claude Code，或两者都选。
+
+4. 安装后，在你的 agent 中使用：
+
+```text
+Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+```
 
 ## 功能
 
@@ -22,7 +40,7 @@
 - 将消费归类到 `出行交通`、`食堂`、`其他饮食/食品商超`、`电商购物` 等类别。
 - 生成 `report.html`、`report.md`、SVG 图表和 CSV 明细。
 
-## 安装
+## 手动安装
 
 先克隆仓库：
 

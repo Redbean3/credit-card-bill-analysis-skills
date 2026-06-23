@@ -10,9 +10,27 @@ The same skill can be installed for either agent, or for both Codex and Claude C
 
 | Tool | Description | Install |
 | --- | --- | --- |
-| Codex | OpenAI's coding agent. The default skill directory is `${CODEX_HOME:-~/.codex}/skills`. | [`./setup --codex`](#codex) |
-| Claude Code | Terminal-based AI coding assistant. The default skill directory is `${CLAUDE_HOME:-~/.claude}/skills`. | [`./setup --claude-code`](#claude-code) |
-| Both | Install the skill for both Codex and Claude Code. | [`./setup --all`](#install-both) |
+| Codex | OpenAI's coding agent. The default skill directory is `${CODEX_HOME:-~/.codex}/skills`. | [`npx skills@latest add ...`](#quickstart-30-second-setup) |
+| Claude Code | Terminal-based AI coding assistant. The default skill directory is `${CLAUDE_HOME:-~/.claude}/skills`. | [`npx skills@latest add ...`](#quickstart-30-second-setup) |
+| Both | Install the skill for both Codex and Claude Code. | [`npx skills@latest add ...`](#quickstart-30-second-setup) |
+
+## Quickstart (30-second setup)
+
+1. Run the skills.sh installer:
+
+```bash
+npx skills@latest add Redbean3/credit-card-bill-analysis-skills
+```
+
+2. Pick `credit-card-bill-analysis`.
+
+3. Pick the coding agents you want to install it on: Codex, Claude Code, or both.
+
+4. After installation, use it in your agent:
+
+```text
+Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+```
 
 ## Features
 
@@ -22,7 +40,7 @@ The same skill can be installed for either agent, or for both Codex and Claude C
 - Classify spending into categories such as `出行交通`, `食堂`, `其他饮食/食品商超`, `电商购物`, and more.
 - Generate `report.html`, `report.md`, SVG charts, and CSV exports.
 
-## Install
+## Manual Install
 
 Clone the repository first:
 
