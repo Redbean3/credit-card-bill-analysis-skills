@@ -1,0 +1,17 @@
+{
+  "name": "credit-card-bill-analysis-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Install the credit-card-bill-analysis skill for Codex and Claude Code.",
+  "bin": {
+    "credit-card-bill-analysis-skills": "./bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "license": "MIT"
+}

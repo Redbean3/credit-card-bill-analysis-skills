@@ -6,32 +6,6 @@
 
 每个安装入口都支持本仓库的同一份 skill；你可以只安装到一个 agent，也可以同时安装到 Codex 和 Claude Code。
 
-## 目录
-
-| 工具 | 简介 | 安装方式 |
-| --- | --- | --- |
-| Codex | OpenAI 的编程 agent，使用 `${CODEX_HOME:-~/.codex}/skills` 作为默认 skill 目录。 | [`npx skills@latest add ...`](#quickstart30-秒安装) |
-| Claude Code | 运行在终端内的 AI 编程助手，使用 `${CLAUDE_HOME:-~/.claude}/skills` 作为默认 skill 目录。 | [`npx skills@latest add ...`](#quickstart30-秒安装) |
-| Both | 同时安装到 Codex 和 Claude Code。 | [`npx skills@latest add ...`](#quickstart30-秒安装) |
-
-## Quickstart（30 秒安装）
-
-1. 运行 skills.sh installer：
-
-```bash
-npx skills@latest add Redbean3/credit-card-bill-analysis-skills
-```
-
-2. 选择 `credit-card-bill-analysis`。
-
-3. 选择要安装到的 coding agent：Codex、Claude Code，或两者都选。
-
-4. 安装后，在你的 agent 中使用：
-
-```text
-Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
-```
-
 ## 功能
 
 - 使用 MarkItDown 将信用卡账单 PDF 转换为 Markdown。
@@ -39,6 +13,30 @@ Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
 - 将同金额退款匹配到更早的正向交易，并从消费图表中剔除对应消费。
 - 将消费归类到 `出行交通`、`食堂`、`其他饮食/食品商超`、`电商购物` 等类别。
 - 生成 `report.html`、`report.md`、SVG 图表和 CSV 明细。
+
+## Quickstart（30 秒安装）
+
+1. 运行本仓库的 npx 安装器：
+
+```bash
+npx github:Redbean3/credit-card-bill-analysis-skills
+```
+
+2. 选择要安装到的 coding agent：Codex、Claude Code，或两者都选。
+
+3. 安装后，在你的 agent 中使用：
+
+```text
+Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+```
+
+也可以非交互安装：
+
+```bash
+npx github:Redbean3/credit-card-bill-analysis-skills -- --codex
+npx github:Redbean3/credit-card-bill-analysis-skills -- --claude-code
+npx github:Redbean3/credit-card-bill-analysis-skills -- --all
+```
 
 ## 手动安装
 

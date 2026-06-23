@@ -6,32 +6,6 @@ A credit-card statement analysis skill for coding agents. It helps Codex or Clau
 
 The same skill can be installed for either agent, or for both Codex and Claude Code.
 
-## Contents
-
-| Tool | Description | Install |
-| --- | --- | --- |
-| Codex | OpenAI's coding agent. The default skill directory is `${CODEX_HOME:-~/.codex}/skills`. | [`npx skills@latest add ...`](#quickstart-30-second-setup) |
-| Claude Code | Terminal-based AI coding assistant. The default skill directory is `${CLAUDE_HOME:-~/.claude}/skills`. | [`npx skills@latest add ...`](#quickstart-30-second-setup) |
-| Both | Install the skill for both Codex and Claude Code. | [`npx skills@latest add ...`](#quickstart-30-second-setup) |
-
-## Quickstart (30-second setup)
-
-1. Run the skills.sh installer:
-
-```bash
-npx skills@latest add Redbean3/credit-card-bill-analysis-skills
-```
-
-2. Pick `credit-card-bill-analysis`.
-
-3. Pick the coding agents you want to install it on: Codex, Claude Code, or both.
-
-4. After installation, use it in your agent:
-
-```text
-Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
-```
-
 ## Features
 
 - Convert credit-card statement PDFs to Markdown with MarkItDown.
@@ -39,6 +13,30 @@ Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
 - Match equal-amount refunds to earlier positive transactions and exclude the matched charge from spending charts.
 - Classify spending into categories such as `出行交通`, `食堂`, `其他饮食/食品商超`, `电商购物`, and more.
 - Generate `report.html`, `report.md`, SVG charts, and CSV exports.
+
+## Quickstart (30-second setup)
+
+1. Run this repository's npx installer:
+
+```bash
+npx github:Redbean3/credit-card-bill-analysis-skills
+```
+
+2. Pick the coding agents you want to install it on: Codex, Claude Code, or both.
+
+3. After installation, use it in your agent:
+
+```text
+Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+```
+
+Non-interactive installs:
+
+```bash
+npx github:Redbean3/credit-card-bill-analysis-skills -- --codex
+npx github:Redbean3/credit-card-bill-analysis-skills -- --claude-code
+npx github:Redbean3/credit-card-bill-analysis-skills -- --all
+```
 
 ## Manual Install
 
