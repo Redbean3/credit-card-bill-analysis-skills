@@ -10,7 +10,7 @@ A credit-card statement analysis skill for coding agents. CCB is short for Credi
 - Parse CMB-style sections: `还款`, `分期`, `退款`, and `消费`.
 - Match equal-amount refunds to earlier positive transactions and exclude the matched charge from spending charts.
 - Classify spending into categories such as `出行交通`, `食堂`, `其他饮食/食品商超`, `电商购物`, and more.
-- Generate `report.html`, `report.md`, SVG charts, and CSV exports.
+- Generate `report.html`, `report.md`, SVG charts, and CSV exports; the HTML report supports clicking the category pie chart and daily spending chart to filter details.
 
 ## Quickstart (30-Second Setup)
 
@@ -70,7 +70,7 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 | File | Description |
 | --- | --- |
-| `report.html` | Interactive HTML report with summary cards, charts, sortable tables, category detail tabs, search, and collapsible refund sections. |
+| `report.html` | Interactive HTML report with summary cards, clickable charts, sortable tables, category detail tabs, search, and collapsible refund sections. |
 | `report.md` | Markdown report. |
 | `category_pie.svg` | Category pie chart. |
 | `daily_spending.svg` | Daily spending bar/line chart. |

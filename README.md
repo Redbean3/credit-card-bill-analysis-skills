@@ -10,7 +10,7 @@
 - 解析 CMB/招商银行风格的账单分区：`还款`、`分期`、`退款`、`消费`。
 - 将同金额退款匹配到更早的正向交易，并从消费图表中剔除对应消费。
 - 将消费归类到 `出行交通`、`食堂`、`其他饮食/食品商超`、`电商购物` 等类别。
-- 生成 `report.html`、`report.md`、SVG 图表和 CSV 明细。
+- 生成 `report.html`、`report.md`、SVG 图表和 CSV 明细；HTML 报告支持点击分类饼图和每日消费图表筛选明细。
 
 ## Quickstart（30 秒安装）
 
@@ -70,7 +70,7 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 | 文件 | 说明 |
 | --- | --- |
-| `report.html` | 交互式 HTML 报告，包含指标卡、图表、可排序表格、分类明细切换、搜索和可折叠退款分区。 |
+| `report.html` | 交互式 HTML 报告，包含指标卡、可点击图表、可排序表格、分类明细切换、搜索和可折叠退款分区。 |
 | `report.md` | Markdown 报告。 |
 | `category_pie.svg` | 消费分类饼图。 |
 | `daily_spending.svg` | 每日消费柱状/折线图。 |
