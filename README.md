@@ -1,10 +1,8 @@
-# Credit Card Bill Analysis Skills
+# CCB Skills
 
 [English](README.en.md) | 简体中文
 
-面向 Coding Agent 的信用卡账单分析 skill，帮助 Codex 或 Claude Code 将中文信用卡 PDF 账单转换为 Markdown，解析交易明细，剔除已退款对应账目，并生成消费分类、每日消费趋势、交互式 HTML 报告和 CSV 明细。
-
-本仓库同时包含 `inskills` 安装器和账单分析 skill。`inskills` 可以从 GitHub 仓库安装 `skills/**/SKILL.md` 格式的 skills；你可以只安装到一个 agent，也可以同时安装到 Codex 和 Claude Code。
+面向 Coding Agent 的信用卡账单分析 skill。CCB 是 Credit Card Bill 的缩写，表示信用卡账单。它帮助 Codex 或 Claude Code 将中文信用卡 PDF 账单转换为 Markdown，解析交易明细，剔除已退款对应账目，并生成消费分类、每日消费趋势、交互式 HTML 报告和 CSV 明细。
 
 ## 功能
 
@@ -16,109 +14,41 @@
 
 ## Quickstart（30 秒安装）
 
-1. 使用 `inskills` 从 GitHub 安装本仓库的 skill：
-
 ```bash
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills
-```
-
-2. 选择要安装到的 coding agent：Codex、Claude Code，或两者都选。
-
-3. 安装后，在你的 agent 中使用：
-
-```text
-Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+npx inskills@latest add Redbean3/ccb-skills
 ```
 
 也可以非交互安装：
 
 ```bash
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --codex
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --claude-code
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --all
+npx inskills@latest add Redbean3/ccb-skills --codex
+npx inskills@latest add Redbean3/ccb-skills --claude-code
+npx inskills@latest add Redbean3/ccb-skills --all
 ```
-
-`inskills` 也可以安装其他公开 GitHub skill 仓库：
-
-```bash
-npx inskills@latest add owner/repo
-npx inskills@latest add owner/repo#v1.0.0 --all
-npx inskills@latest add owner/repo --skill skill-name --codex
-```
-
-## 手动安装
-
-先克隆仓库：
-
-```bash
-git clone git@github.com:Redbean3/credit-card-bill-analysis-skills.git
-cd credit-card-bill-analysis-skills
-```
-
-### 交互式安装
-
-```bash
-./setup
-```
-
-安装脚本会询问要安装到哪个 coding agent：
-
-```text
-Which coding agents do you want to install this skill on?
-  1) Codex
-  2) Claude Code
-  3) Both
-  4) Cancel
-```
-
-### Codex
-
-```bash
-./setup --codex
-```
-
-默认安装到：
-
-```text
-${CODEX_HOME:-~/.codex}/skills/credit-card-bill-analysis
-```
-
-### Claude Code
-
-```bash
-./setup --claude-code
-```
-
-默认安装到：
-
-```text
-${CLAUDE_HOME:-~/.claude}/skills/credit-card-bill-analysis
-```
-
-安装到 Claude Code 时，脚本会省略 Codex 专用的 `agents/openai.yaml`。
-
-### 同时安装
-
-```bash
-./setup --all
-```
-
-常用参数：
-
-```bash
-./setup --all --dry-run
-./setup --all --force
-./setup --codex --codex-dir ~/.codex/skills/credit-card-bill-analysis
-./setup --claude-code --claude-dir ~/.claude/skills/credit-card-bill-analysis
-```
-
-## 使用
 
 安装后，让你的 coding agent 使用该 skill：
 
 ```text
-Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+Use $ccb to analyze this credit-card statement PDF.
 ```
+
+## 从旧名称迁移
+
+旧 skill 名是 `credit-card-bill-analysis`，新名称是 `ccb`。重新安装后，新目录会是：
+
+```text
+${CODEX_HOME:-~/.codex}/skills/ccb
+${CLAUDE_HOME:-~/.claude}/skills/ccb
+```
+
+如果你之前安装过旧版本，可以手动删除旧目录：
+
+```text
+${CODEX_HOME:-~/.codex}/skills/credit-card-bill-analysis
+${CLAUDE_HOME:-~/.claude}/skills/credit-card-bill-analysis
+```
+
+## 使用
 
 该 skill 会引导 agent 完成：
 
@@ -151,12 +81,8 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 ```text
 .
-├── bin/
-│   └── install.mjs
-├── package.json
-├── setup
 └── skills/
-    └── credit-card-bill-analysis/
+    └── ccb/
         ├── SKILL.md
         ├── agents/
         │   └── openai.yaml
@@ -166,8 +92,9 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 ## 相关资源
 
-- [MarkItDown](https://github.com/microsoft/markitdown) — 将 PDF、Office、HTML 等文件转换为 Markdown。
-- [uv](https://docs.astral.sh/uv/) — Python 包和工具管理器。
+- [inskills](https://github.com/Redbean3/inskills) - 从 GitHub 仓库安装 agent skills。
+- [MarkItDown](https://github.com/microsoft/markitdown) - 将 PDF、Office、HTML 等文件转换为 Markdown。
+- [uv](https://docs.astral.sh/uv/) - Python 包和工具管理器。
 
 ## 隐私
 
@@ -180,10 +107,6 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 - 推荐 Python 3.11+ 运行分析脚本。
 - PDF 转换需要 `uv` 和 MarkItDown。
 - 分析脚本本身不依赖第三方 Python 包。
-
-## 参与贡献
-
-欢迎提交 issue 或 pull request 来改进更多账单格式、分类规则和安装目标支持。
 
 ## License
 

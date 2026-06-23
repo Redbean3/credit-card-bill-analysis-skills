@@ -1,10 +1,8 @@
-# Credit Card Bill Analysis Skills
+# CCB Skills
 
 English | [简体中文](README.md)
 
-A credit-card statement analysis skill for coding agents. It helps Codex or Claude Code convert Chinese credit-card statement PDFs to Markdown, parse transaction details, exclude refunded purchases, and generate spending categories, daily spending trends, an interactive HTML report, and CSV exports.
-
-This repository contains both the `inskills` installer and the credit-card statement analysis skill. `inskills` installs `skills/**/SKILL.md` style skills from GitHub repositories into Codex, Claude Code, or both.
+A credit-card statement analysis skill for coding agents. CCB is short for Credit Card Bill. It helps Codex or Claude Code convert Chinese credit-card statement PDFs to Markdown, parse transaction details, exclude refunded purchases, and generate spending categories, daily spending trends, an interactive HTML report, and CSV exports.
 
 ## Features
 
@@ -14,113 +12,45 @@ This repository contains both the `inskills` installer and the credit-card state
 - Classify spending into categories such as `出行交通`, `食堂`, `其他饮食/食品商超`, `电商购物`, and more.
 - Generate `report.html`, `report.md`, SVG charts, and CSV exports.
 
-## Quickstart (30-second setup)
-
-1. Use `inskills` to install this repository's skill from GitHub:
+## Quickstart (30-Second Setup)
 
 ```bash
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills
-```
-
-2. Pick the coding agents you want to install it on: Codex, Claude Code, or both.
-
-3. After installation, use it in your agent:
-
-```text
-Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+npx inskills@latest add Redbean3/ccb-skills
 ```
 
 Non-interactive installs:
 
 ```bash
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --codex
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --claude-code
-npx inskills@latest add Redbean3/credit-card-bill-analysis-skills --all
+npx inskills@latest add Redbean3/ccb-skills --codex
+npx inskills@latest add Redbean3/ccb-skills --claude-code
+npx inskills@latest add Redbean3/ccb-skills --all
 ```
-
-`inskills` can also install other public GitHub skill repositories:
-
-```bash
-npx inskills@latest add owner/repo
-npx inskills@latest add owner/repo#v1.0.0 --all
-npx inskills@latest add owner/repo --skill skill-name --codex
-```
-
-## Manual Install
-
-Clone the repository first:
-
-```bash
-git clone git@github.com:Redbean3/credit-card-bill-analysis-skills.git
-cd credit-card-bill-analysis-skills
-```
-
-### Interactive Install
-
-```bash
-./setup
-```
-
-The installer asks which coding agents you want to install this skill on:
-
-```text
-Which coding agents do you want to install this skill on?
-  1) Codex
-  2) Claude Code
-  3) Both
-  4) Cancel
-```
-
-### Codex
-
-```bash
-./setup --codex
-```
-
-Default target:
-
-```text
-${CODEX_HOME:-~/.codex}/skills/credit-card-bill-analysis
-```
-
-### Claude Code
-
-```bash
-./setup --claude-code
-```
-
-Default target:
-
-```text
-${CLAUDE_HOME:-~/.claude}/skills/credit-card-bill-analysis
-```
-
-When installing for Claude Code, the installer omits the Codex-specific `agents/openai.yaml` file.
-
-### Install Both
-
-```bash
-./setup --all
-```
-
-Useful options:
-
-```bash
-./setup --all --dry-run
-./setup --all --force
-./setup --codex --codex-dir ~/.codex/skills/credit-card-bill-analysis
-./setup --claude-code --claude-dir ~/.claude/skills/credit-card-bill-analysis
-```
-
-## Usage
 
 After installation, ask your coding agent to use the skill:
 
 ```text
-Use $credit-card-bill-analysis to analyze this credit-card statement PDF.
+Use $ccb to analyze this credit-card statement PDF.
 ```
 
-The skill will guide the agent through:
+## Migrating From The Old Name
+
+The old skill name was `credit-card-bill-analysis`. The new skill name is `ccb`. After reinstalling, the new directories are:
+
+```text
+${CODEX_HOME:-~/.codex}/skills/ccb
+${CLAUDE_HOME:-~/.claude}/skills/ccb
+```
+
+If you installed the old version, you can manually remove the old directories:
+
+```text
+${CODEX_HOME:-~/.codex}/skills/credit-card-bill-analysis
+${CLAUDE_HOME:-~/.claude}/skills/credit-card-bill-analysis
+```
+
+## Usage
+
+The skill guides the agent through:
 
 1. Converting the PDF with MarkItDown:
 
@@ -151,12 +81,8 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 ```text
 .
-├── bin/
-│   └── install.mjs
-├── package.json
-├── setup
 └── skills/
-    └── credit-card-bill-analysis/
+    └── ccb/
         ├── SKILL.md
         ├── agents/
         │   └── openai.yaml
@@ -166,8 +92,9 @@ python3 scripts/analyze_cmb_credit_card_bill.py statement.md
 
 ## Resources
 
-- [MarkItDown](https://github.com/microsoft/markitdown) — convert PDF, Office, HTML, and other files to Markdown.
-- [uv](https://docs.astral.sh/uv/) — Python package and tool manager.
+- [inskills](https://github.com/Redbean3/inskills) - install agent skills from GitHub repositories.
+- [MarkItDown](https://github.com/microsoft/markitdown) - convert PDF, Office, HTML, and other files to Markdown.
+- [uv](https://docs.astral.sh/uv/) - Python package and tool manager.
 
 ## Privacy
 
@@ -180,10 +107,6 @@ Do not commit real statement PDFs, converted Markdown files, generated HTML/Mark
 - Python 3.11+ recommended for the analyzer.
 - `uv` and MarkItDown for PDF conversion.
 - No third-party Python packages are required by the analyzer itself.
-
-## Contributing
-
-Issues and pull requests are welcome for additional statement formats, category rules, and installation targets.
 
 ## License
 

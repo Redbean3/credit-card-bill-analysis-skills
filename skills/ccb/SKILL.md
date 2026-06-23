@@ -1,9 +1,9 @@
 ---
-name: credit-card-bill-analysis
+name: ccb
 description: Analyze Chinese credit card statement PDFs, especially招商银行/CMB账单, by converting PDFs with uv/MarkItDown, parsing transaction details, matching and excluding refunded purchases, classifying spending, and generating Markdown reports, SVG pie/daily charts, and CSV transaction exports. Use when the user asks to analyze a credit-card bill,账单, PDF statement, refund-aware消费分类, spending pie chart, or daily spending chart.
 ---
 
-# Credit Card Bill Analysis
+# CCB (Credit Card Bill)
 
 Use this skill to turn a credit-card statement PDF or MarkItDown-generated Markdown into a local spending analysis. The bundled script is tuned for CMB/招商银行 credit-card statements like `招商银行信用卡对账单` with sections such as `还款`, `分期`, `退款`, and `消费`.
 

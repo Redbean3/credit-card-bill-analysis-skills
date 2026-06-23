@@ -1,0 +1,4 @@
+interface:
+  display_name: "CCB"
+  short_description: "Analyze PDF credit card bills with refund-aware charts"
+  default_prompt: "Use $ccb to convert a credit card PDF bill to Markdown and generate refund-aware spending charts."
